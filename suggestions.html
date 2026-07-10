@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShockTag Suggestions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <nav class="nav-links">
+            <a href="ShockTag.html">Home</a>
+            <a href="support.html">Support</a>
+            <a href="suggestions.html">Suggestions</a>
+            <a href="blank-page-1.html">Staff Team</a>
+            <a href="blank-page-2.html">Game Tips</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="card">
+            <h1>Suggestions</h1>
+            <p>Share your ideas for the game with the team and see what others have suggested.</p>
+
+            <form class="contact-form" id="suggestions-form">
+                <input type="text" name="discordUsername" placeholder="Discord Username" required>
+                <textarea name="suggestion" placeholder="Type your suggestion here..." required></textarea>
+                <button type="submit">Post Suggestion</button>
+            </form>
+
+            <p class="note">Suggestions will appear on this page for everyone to view.</p>
+
+            <div class="suggestions-board">
+                <h2>Recent Suggestions</h2>
+                <ul id="suggestions-list" class="suggestions-list"></ul>
+                <p id="suggestions-empty" class="empty-state">No suggestions yet. Be the first to post one!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
