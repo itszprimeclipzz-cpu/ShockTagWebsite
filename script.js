@@ -2,6 +2,8 @@ const STORAGE_KEY = "shocktag-suggestions";
 const form = document.querySelector("#suggestions-form");
 const suggestionsList = document.querySelector("#suggestions-list");
 const emptyState = document.querySelector("#suggestions-empty");
+const navButtons = document.querySelectorAll(".nav-btn");
+const sections = document.querySelectorAll(".page-section");
 
 function loadSuggestions() {
     try {
@@ -20,6 +22,10 @@ function saveSuggestions(suggestions) {
 function renderSuggestions() {
     const suggestions = loadSuggestions();
 
+    if (!suggestionsList || !emptyState) {
+        return;
+    }
+
     if (!suggestions.length) {
         suggestionsList.innerHTML = "";
         emptyState.hidden = false;
@@ -36,6 +42,24 @@ function renderSuggestions() {
         `)
         .join("");
 }
+
+function showSection(targetId) {
+    sections.forEach((section) => {
+        section.classList.toggle("active", section.id === targetId);
+    });
+
+    navButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.target === targetId);
+    });
+
+    if (window.location.hash !== `#${targetId}`) {
+        window.history.replaceState(null, "", `#${targetId}`);
+    }
+}
+
+navButtons.forEach((button) => {
+    button.addEventListener("click", () => showSection(button.dataset.target));
+});
 
 if (form && suggestionsList && emptyState) {
     form.addEventListener("submit", (event) => {
@@ -61,4 +85,6 @@ if (form && suggestionsList && emptyState) {
     });
 }
 
+const initialSection = window.location.hash.replace("#", "") || "home";
+showSection(initialSection);
 renderSuggestions();
