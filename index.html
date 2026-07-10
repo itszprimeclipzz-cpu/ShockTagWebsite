@@ -3,30 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShockTag Home</title>
+    <title>ShockTag</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="topbar">
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="support.html">Support</a>
-            <a href="suggestions.html">Suggestions</a>
-            <a href="Staff-Team.html">Staff Team</a>
-            <a href="Game-Tips.html">Game Tips</a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <button class="nav-btn active" type="button" data-target="home">Home</button>
+            <button class="nav-btn" type="button" data-target="support">Support</button>
+            <button class="nav-btn" type="button" data-target="suggestions">Suggestions</button>
+            <button class="nav-btn" type="button" data-target="staff">Staff Team</button>
+            <button class="nav-btn" type="button" data-target="tips">Game Tips</button>
         </nav>
     </header>
 
     <main class="page">
-        <section class="card">
+        <section class="card page-section active" id="home">
             <h1><strong>WELCOME TO THE OFFICIAL SHOCKTAG WEBSITE!!!</strong></h1>
             <p>This is the main page for the ShockTag community site.</p>
 
             <div class="info-box">
-                <h2></h2>
-                <p></p>
+                <h2>Welcome</h2>
+                <p>Use the buttons above to switch between sections.</p>
+            </div>
+        </section>
+
+        <section class="card page-section" id="support">
+            <h1>Support</h1>
+            <p>THIS WILL COME SOON!!!</p>
+        </section>
+
+        <section class="card page-section" id="suggestions">
+            <h1>Suggestions</h1>
+            <p>Share your ideas for the game with the team and see what others have suggested.</p>
+
+            <form class="contact-form" id="suggestions-form">
+                <input type="text" name="discordUsername" placeholder="Discord Username" required>
+                <textarea name="suggestion" placeholder="Type your suggestion here..." required></textarea>
+                <button type="submit">Post Suggestion</button>
+            </form>
+
+            <p class="note">Suggestions will appear on this page for everyone to view.</p>
+
+            <div class="suggestions-board">
+                <h2>Recent Suggestions</h2>
+                <ul id="suggestions-list" class="suggestions-list"></ul>
+                <p id="suggestions-empty" class="empty-state">No suggestions yet. Be the first to post one!</p>
+            </div>
+        </section>
+
+        <section class="card page-section" id="staff">
+            <h1>Staff Team</h1>
+            <div class="placeholder">
+                <p>Main Founders: untitled, and bluebery</p>
+                <p>I forgot all the other staff roles, I’ll check later and update this page.</p>
+            </div>
+        </section>
+
+        <section class="card page-section" id="tips">
+            <h1>Game Tips</h1>
+            <div class="placeholder">
+                <p>1. Get better at the game 👍</p>
             </div>
         </section>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
